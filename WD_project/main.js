@@ -14,7 +14,7 @@ renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
 camera.position.setZ(30);
 let cameraY = 0;
-let isCamMovePos = true;
+let isCamMoveUp = true;
 
 function switchCameraYMovement(y) {
   if (y >= 30) {
@@ -74,6 +74,8 @@ function addStarsL() {
 }
 
 
+
+
 const planetGeo = new THREE.SphereGeometry(3.8, 25, 13, 3.141592653589793, /*6.283185307179586*/3.141592653589793, 0, 3.141592653589793);
 const planetGeo2 = new THREE.SphereGeometry(3.8, 25, 13, 0, 3.141592653589793, 0, 3.141592653589793)
 const planet = new THREE.Mesh(planetGeo, wireframeMaterial);
@@ -91,33 +93,45 @@ Array(65).fill().forEach(addStarsM);
 Array(110).fill().forEach(addStarsS);
 
 
+
 function animate() {
   requestAnimationFrame(animate);
+
+  planet.rotation.x += .005
+  planet.rotation.y += 0.0075
+  planet2.rotation.x += .005
+  planet2.rotation.y += 0.0075
+
   
-  planet.rotation.x += 0.01;
-  planet.rotation.y += 0.015;
-  planet2.rotation.x += 0.01;
-  planet2.rotation.y += 0.015;
 
   switchCameraYMovement(cameraY);
 
   
-  if (isCamMovePos) {
-    cameraY += .03;
-    if (cameraY >= 30) {
-      isCamMovePos = switchCameraYMovement(cameraY);
-    }
-  }
-  if (!isCamMovePos) {
-    cameraY -= .03;
-    if (cameraY <= -30) {
-      isCamMovePos = switchCameraYMovement(cameraY);
-    }
-  }
+  // if (isCamMoveUp) {
+  //   cameraY += .03;
+  //   if (cameraY >= 30) {
+  //     isCamMoveUp = switchCameraYMovement(cameraY);
+  //   }
+  // }
+  // if (!isCamMoveUp) {
+  //   cameraY -= .03;
+  //   if (cameraY <= -30) {
+  //     isCamMoveUp = switchCameraYMovement(cameraY);
+  //   }
+  // }
   
-  camera.position.setY(cameraY);
+  // camera.position.setY(cameraY);
 
-  orbit.update();
+  // orbit.update();
+
   renderer.render(scene,camera);
 }
 animate();
+
+
+function moveCamera() {
+  const t = document.body.getBoundingClientRect().top;
+
+}
+
+document.body.onscroll = moveCamera;
