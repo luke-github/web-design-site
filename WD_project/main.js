@@ -83,14 +83,10 @@ scene.add(starsGroup);
 
 
 //planetry tings
-const planetGeo = new THREE.SphereGeometry(3.8, 25, 13, 3.141592653589793, /*6.283185307179586*/3.141592653589793, 0, 3.141592653589793);
-const planetGeo2 = new THREE.SphereGeometry(3.8, 25, 13, 0, 3.141592653589793, 0, 3.141592653589793)
+const planetGeo = new THREE.SphereGeometry(3.8, 25, 13, 3.141592653589793, 6.283185307179586, 0, 3.141592653589793);
 const planet = new THREE.Mesh(planetGeo, wireframeMaterial);
-const planet2 = new THREE.Mesh(planetGeo2, wireframeMaterial);
-
 planet.position.set(4, -1, 9);
-planet2.position.set(4, -1, 9);
-scene.add(planet, planet2);
+scene.add(planet);
 //
 
 Array(25).fill().forEach(addStarsL);
@@ -103,8 +99,6 @@ function animate() {
 
   planet.rotation.x += .005
   planet.rotation.y += 0.0075
-  planet2.rotation.x += .005
-  planet2.rotation.y += 0.0075
 
   starsGroup.rotateY(0.0005);
 
