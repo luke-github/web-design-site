@@ -126,7 +126,16 @@ blockquote p {
   justify-content: center;
 }
 .imageDiv img {
-  max-height: 300px;
-  max-width: 300px;
-  margin: 0 auto;
+  height: 200px;
+  width: 200px;
+  margin: 0 20px;
+}
+#vite:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+#js:hover {
+  filter: drop-shadow(0 0 2em #f7df1eaa);
+}
+#three:hover {
+  filter: drop-shadow(0 0 4em #000000);
 }
