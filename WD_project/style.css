@@ -139,3 +139,17 @@ blockquote p {
 #three:hover {
   filter: drop-shadow(0 0 4em #000000);
 }
+#infodiv {
+  background:white;
+  position:fixed;
+  top:10px;
+  left:10px;
+  width:100px;
+  height:50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 20px;
+  z-index: 110;
+}

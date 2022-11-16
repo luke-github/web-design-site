@@ -126,12 +126,30 @@ function animate() {
 }
 animate();
 
-
+let previoust = 0;
 function moveCamera() {
   const t = document.body.getBoundingClientRect().top;
-  camera.position.z = t * -0.01;
-  camera.position.x = t * -0.0002;
-  camera.position.y = t * -0.0002;
+  document.getElementById("infodiv").innerHTML = t;
+
+  if (t < previoust) {
+    document.getElementById("infodiv").innerHTML = t + " down";
+  } else {
+    document.getElementById("infodiv").innerHTML = t + " up";
+  }
+
+
+  // if (t < -1000 && t > -2000) {
+  //   camera.position.z = t * -0.01;
+  //   camera.position.x = t * 0.008;
+  //   camera.position.y = t * -0.0002;
+  // } else {
+  //   camera.position.z = t * -0.01;
+  //   camera.position.x = t * -0.0002;
+  //   camera.position.y = t * -0.0002;
+  // }
+  
+
+  previoust = t;
 }
 
 document.body.onscroll = moveCamera;
