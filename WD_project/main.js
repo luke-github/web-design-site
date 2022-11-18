@@ -13,7 +13,7 @@ const renderer = new THREE.WebGLRenderer({
 
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
-camera.position.setZ(0);
+camera.position.setZ(30);
 let cameraY = 0;
 let isCamMoveUp = true;
 
@@ -22,14 +22,6 @@ const wireframeMaterial = new THREE.MeshBasicMaterial({color: 0xffffff, wirefram
 const starsGroup = new THREE.Group();
 //
 
-function switchCameraYMovement(y) {
-  if (y >= 30) {
-    return false;
-  }
-  if (y <= -30) {
-    return true
-  }
-} 
 
 
 //orbit tings
@@ -51,7 +43,6 @@ function addStarsS() {
 
   star.position.set(x, y, z);
   starsGroup.add(star);
-  // scene.add(star);
 
 }
 
@@ -64,7 +55,6 @@ function addStarsM() {
 
   star.position.set(x, y, z);
   starsGroup.add(star);
-  // scene.add(star);
 
 }
 
@@ -77,7 +67,6 @@ function addStarsL() {
 
   star.position.set(x, y, z);
   starsGroup.add(star);
-  // scene.add(star);
 }
 scene.add(starsGroup);
 
@@ -100,27 +89,10 @@ function animate() {
   planet.rotation.x += .005
   planet.rotation.y += 0.0075
 
-  starsGroup.rotateY(0.0005);
+  starsGroup.rotateY(0.001);
 
-  switchCameraYMovement(cameraY);
 
   
-  // if (isCamMoveUp) {
-  //   cameraY += .03;
-  //   if (cameraY >= 30) {
-  //     isCamMoveUp = switchCameraYMovement(cameraY);
-  //   }
-  // }
-  // if (!isCamMoveUp) {
-  //   cameraY -= .03;
-  //   if (cameraY <= -30) {
-  //     isCamMoveUp = switchCameraYMovement(cameraY);
-  //   }
-  // }
-  
-  // camera.position.setY(cameraY);
-
-  // orbit.update();
 
   renderer.render(scene,camera);
 }
@@ -131,22 +103,11 @@ function moveCamera() {
   const t = document.body.getBoundingClientRect().top;
   document.getElementById("infodiv").innerHTML = t;
 
-  if (t < previoust) {
-    document.getElementById("infodiv").innerHTML = t + " down";
-  } else {
-    document.getElementById("infodiv").innerHTML = t + " up";
-  }
+  camera.position.z = t * -0.01 + 30;
+  camera.position.x = t * -0.0002;
+  camera.position.y = t * -0.0002;
 
 
-  // if (t < -1000 && t > -2000) {
-  //   camera.position.z = t * -0.01;
-  //   camera.position.x = t * 0.008;
-  //   camera.position.y = t * -0.0002;
-  // } else {
-  //   camera.position.z = t * -0.01;
-  //   camera.position.x = t * -0.0002;
-  //   camera.position.y = t * -0.0002;
-  // }
   
 
   previoust = t;
