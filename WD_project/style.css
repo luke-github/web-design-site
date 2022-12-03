@@ -49,6 +49,7 @@ section {
 section::before {
   content: '';
   position: absolute;
+  opacity: inherit;
   top: 0;
   right: 0;
   left: 0;
@@ -58,20 +59,14 @@ section::before {
   z-index: 0;
 }
 
-section p {
+section p, h2 {
   position: relative;
   color: black;
-  text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff,
+  text-shadow: -1px -1px 0 #fff,
+    1px -1px 0 #fff,
+    -1px 1px 0 #fff,
     1px 1px 0 #fff;
-  z-index: 2;
-}
-
-section h2 {
-  position: relative;
-  color: black;
-  z-index: 2;
-  text-shadow: -1px -1px 0 #fff, 1px -1px 0 #fff, -1px 1px 0 #fff,
-    1px 1px 0 #fff;
+  z-index: 99;
 }
 
 blockquote {
@@ -99,18 +94,10 @@ blockquote p {
   top: 120px;
   text-align: center;
   backdrop-filter: blur(3px) invert(100%);
-  background: rgba(139, 139, 139, 0.45);
+  background: rgba(255, 255, 255, 0.45);
   height: 100vh;
   z-index: 99;
   padding: 10px 45px 30px;
-}
-
-.blurBG::before {
-  content: "";
-  background: rgba(255, 255, 255, 0.712);
-  margin: 0;
-  padding: 0;
-  z-index: 0;
 }
 
 .blurBG h1 {
@@ -124,10 +111,6 @@ blockquote p {
   font-size: 18pt;
   margin:auto;
 }
-
-
-
-
 
 .blurBG #srclink{
   background: -webkit-linear-gradient(0deg, #b20bff, #11baf2 100%);
@@ -144,9 +127,6 @@ blockquote p {
 .blurBG > a {
   text-decoration: none;
 }
-
-
-
 
 .imageDiv {
   display: flex;
@@ -176,8 +156,8 @@ blockquote p {
   position: fixed;
   top: 10px;
   left: 10px;
-  width: 100px;
-  height: 50px;
+  width: 250px;
+  height: 100px;
   display: flex;
   justify-content: center;
   align-items: center;

@@ -13,9 +13,7 @@ const renderer = new THREE.WebGLRenderer({
 
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
-camera.position.setZ(30);
-let cameraY = 0;
-let isCamMoveUp = true;
+camera.position.setZ(0);
 
 const wireframeMaterial = new THREE.MeshBasicMaterial({color: 0xffffff, wireframe: true});
 
@@ -91,26 +89,20 @@ function animate() {
 
   starsGroup.rotateY(0.001);
 
-
   
 
   renderer.render(scene,camera);
 }
 animate();
 
-let previoust = 0;
 function moveCamera() {
   const t = document.body.getBoundingClientRect().top;
-  document.getElementById("infodiv").innerHTML = t;
-
-  camera.position.z = t * -0.01 + 30;
-  camera.position.x = t * -0.0002;
-  camera.position.y = t * -0.0002;
-
-
   
 
-  previoust = t;
+  camera.position.z = t * -0.015 ;
+  camera.position.x = t * -0.0003;
+  camera.position.y = t * -0.0003;
+
 }
 
 document.body.onscroll = moveCamera;
