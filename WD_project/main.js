@@ -37,7 +37,7 @@ function addStarsS() {
   const material = new THREE.MeshBasicMaterial({color: 0xFFFFFF, wireframe: true});
   const star = new THREE.Mesh(dodecaGeoSmall, material);
 
-  const [x, y, z] = Array(3).fill().map(() => THREE.MathUtils.randFloatSpread(100) );
+  const [x, y, z] = Array(3).fill().map(() => THREE.MathUtils.randFloatSpread(130) );
 
   star.position.set(x, y, z);
   starsGroup.add(star);
@@ -49,7 +49,7 @@ function addStarsM() {
   const material = new THREE.MeshBasicMaterial({color: 0xFFFFFF, wireframe: true});
   const star = new THREE.Mesh(dodecaGeoMedium, material);
 
-  const [x, y, z] = Array(3).fill().map(() => THREE.MathUtils.randFloatSpread(100) );
+  const [x, y, z] = Array(3).fill().map(() => THREE.MathUtils.randFloatSpread(130) );
 
   star.position.set(x, y, z);
   starsGroup.add(star);
@@ -58,10 +58,10 @@ function addStarsM() {
 
 function addStarsL() {
   const dodecaGeoLarge = new THREE.DodecahedronGeometry(.5, 2);
-  const material = new THREE.MeshBasicMaterial({color: 0xFFFFFF, wireframe: true});
+  const material = new THREE.MeshBasicMaterial({color: 0xfff4b0, wireframe: true});
   const star = new THREE.Mesh(dodecaGeoLarge, material);
 
-  const [x, y, z] = Array(3).fill().map(() => THREE.MathUtils.randFloatSpread(100) );
+  const [x, y, z] = Array(3).fill().map(() => THREE.MathUtils.randFloatSpread(130) );
 
   star.position.set(x, y, z);
   starsGroup.add(star);
@@ -76,9 +76,9 @@ planet.position.set(4, -1, 9);
 scene.add(planet);
 //
 
-Array(25).fill().forEach(addStarsL);
-Array(65).fill().forEach(addStarsM);
-Array(110).fill().forEach(addStarsS);
+Array(34).fill().forEach(addStarsL);
+Array(88).fill().forEach(addStarsM);
+Array(150).fill().forEach(addStarsS);
 
 
 function animate() {

@@ -104,6 +104,8 @@ blockquote p {
   text-align: center;
   color: black;
   font-size: 40pt;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 
 .blurBG p {
