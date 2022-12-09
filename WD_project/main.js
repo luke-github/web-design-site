@@ -2,7 +2,6 @@ import './style.css'
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
-// necessary setup
 const scene = new THREE.Scene();
 
 const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -18,11 +17,10 @@ camera.position.setZ(0);
 const wireframeMaterial = new THREE.MeshBasicMaterial({color: 0xffffff, wireframe: true});
 
 const starsGroup = new THREE.Group();
-//
 
 
 
-//orbit tings
+
 const orbit = new OrbitControls(camera, renderer.domElement);
 orbit.target = new THREE.Vector3(0,0,0);
 orbit.minDistance = 35;
@@ -30,7 +28,7 @@ orbit.zoomSpeed = 0.3;
 orbit.autoRotate = true;
 orbit.autoRotateSpeed = 2.0;
 orbit.enabled = false;
-//
+
 
 function addStarsS() {
   const dodecaGeoSmall = new THREE.IcosahedronGeometry(.1, 0);
@@ -69,12 +67,10 @@ function addStarsL() {
 scene.add(starsGroup);
 
 
-//planetry tings
 const planetGeo = new THREE.SphereGeometry(3.8, 25, 13, 3.141592653589793, 6.283185307179586, 0, 3.141592653589793);
 const planet = new THREE.Mesh(planetGeo, wireframeMaterial);
 planet.position.set(4, -1, 9);
 scene.add(planet);
-//
 
 Array(34).fill().forEach(addStarsL);
 Array(88).fill().forEach(addStarsM);
